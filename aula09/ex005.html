@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos com DOM</title>
+
+    <style>
+        body {
+            background: rgb(32, 32, 170);
+            color: white;
+            font: noemal 18pt Arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar <strong>DOM</strong> em Java Script</p>
+    <div id="msg">Clique em mim</div>
+    <script>
+        var corpo = document.body
+        var p1 = window.document.getElementsByTagName('p')[1]
+        var d = window.document.getElementById('msg')
+
+        // d.style.background = 'green'
+        // d.innerText = 'Estou aguardando...'
+        // document.write(p1.innerText)
+        // corpo.style.background = 'black'
+        // p1.style.color = 'blue'
+
+        // document.write(p1.innerHTML)
+
+        // Algumas funcionalidades do DOM
+        // window.document.write(window.navigator.appName) // Informa o navegador usado
+        // window.document.write('<br>')
+        // window.document.write(window.document.URL) // Informa a URL atual
+        // window.document.write('<br>')
+        // window.document.write(window.document.charset) // Informa a tipagem de caractere
+        
+        // UTILIZANDO SELETOR
+
+        var e = window.document.querySelector('div#msg') // Quando ID usa '#', quando classe usa-se '.'
+        e.style.color = 'red'
+
+    </script>
+</body>
+</html>

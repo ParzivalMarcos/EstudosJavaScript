@@ -11,11 +11,31 @@
     </style>
 </head>
 <body>
-    <script>
+    <script> 
+        /*
+            variavel.lenght => Mostra a quantidade de letras de uma String
+            veriavel.toUpperCase() => Mostra a String em letra Maiuscula
+            variavel.toLowerCase() => Mostra a String em letra Minuscula 
+        */
         var nome = window.prompt('Qual é seu nome? ')
         document.write(`Seu nome tem <strong>${nome.length}</strong> letras.<br>`)
         document.write(`Seu nome em maiuscula é ${nome.toUpperCase()} <br>`)
         document.write(`Seu nome em minusculos é ${nome.toLocaleLowerCase()}`)
+
+
+        /*
+            variavel.toFixed(x) => Define a quantidade de nuemeros após a virgula
+            variavel.replace('x', 'y') => Altera uma informação (x) pela outra (y)
+        */
+        var numero = Number(prompt('Digite um número: '))
+        document.write(`<br> O numero digitado é: ${numero.toFixed(2).replace('.',',')}<br>`)
+        
+        // Mostrando um número em valor monetário / 
+        document.write(`${numero.toLocaleString(
+            'pt-br', {
+                style: 'currency', currency: 'BRL'
+            }
+        )}`)
     </script>
 </body>
 </html>
