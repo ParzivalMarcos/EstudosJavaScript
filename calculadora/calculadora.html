@@ -6,35 +6,43 @@
     <title>Calculadora Java Script</title>
 </head>
 <body>
-    <div class="calc">
-        <h1>Insira os números</h1>
-        <div id="visor"></div>
-        <label for="visor">teste</label>
-        <!-- Operadores Aritmeticos -->
-        <input type="button" value="/" onclick="dividir()">
-        <input type="button" value="*" onclick="multiplicar()">
-        <input type="button" value="-" onclick="subtrair()">
-        <input type="button" value="+" onclick="somar()">
-
-        <!-- Numeros -->
-        <input type="button" value="7" onclick="getNum(7)">
-        <input type="button" value="8" onclick="getNum(8)">
-        <input type="button" value="9" onclick="getNum(9)">
-        <input type="button" value="4" onclick="getNum(4)">
-        <input type="button" value="5" onclick="getNum(5)">
-        <input type="button" value="6" onclick="getNum(6)">
-        <input type="button" value="1" onclick="getNum(1)">
-        <input type="button" value="2" onclick="getNum(2)">
-        <input type="button" value="3" onclick="getNum(3)">
-        <input type="button" value="0" onclick="getNum(0)">
-
-        <!-- Outros Caracteres -->
-        <input type="button" value=".">
-    </div>
+    <form class="calculdora" name="calculdora">
+        <fieldset>
+            <input type="text" name="visor" id="visor"></input>
+            
+            <table id="calc">
+                <tr>
+                    <td><input type="button" value="7" onclick="getNum(7)"></td>
+                    <td><input type="button" value="8" onclick="getNum(8)"></td>
+                    <td><input type="button" value="9" onclick="getNum(9)"></td>   
+                    <td><input type="button" value="+" onclick="somar()"></td>           
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" onclick="getNum(4)"></td>
+                    <td><input type="button" value="5" onclick="getNum(5)"></td>
+                    <td><input type="button" value="6" onclick="getNum(6)"></td>
+                    <td><input type="button" value="-" onclick="subtrair()"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" onclick="getNum(1)"></td>
+                    <td><input type="button" value="2" onclick="getNum(2)"></td>
+                    <td><input type="button" value="3" onclick="getNum(3)"></td>
+                    <td><input type="button" value="*" onclick="multiplicar()"></td>     
+                </tr>
+                <tr>
+                    <td><input type="button" value="."></td>
+                    <td><input type="button" value="0" onclick="getNum(0)"></td>            
+                    <td><input type="button" value="="></td>
+                    <td><input type="button" value="/" onclick="dividir()"></td>
+                </tr>
+            </fieldset>
+        </table>
+    </form>
 
     <script>
-        num1 = 0
-        num2 = 0
+        var num1 = 0
+        var num2 = 0
+        var resultado = document.getElementById('visor')
 
         // Funções de operações matematicas
         function dividir(){
@@ -55,7 +63,8 @@
 
         // Capturando numero clicado
         function getNum(num){
-            num1 = num
+            // resultado.innerHTML = num
+
         }
     </script>
 </body>
