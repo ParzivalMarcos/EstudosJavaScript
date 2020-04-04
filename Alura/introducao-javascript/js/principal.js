@@ -40,15 +40,19 @@ titulo.addEventListener("click", function(){
 
 var botao = document.querySelector("#adicionar-paciente")
 
-botao.addEventListener("click", function(){
-    alert("Botão clicado !!")
+botao.addEventListener("click", function(event){
+    event.preventDefault()
+    alert("Fui clicado !!")
 })
 
+// botao.addEventListener("click", function(){
+//     alert("Botão clicado !!")
+// })
 
-botao.addEventListener("mouseenter", function(){
-    botao.classList.add("botao-selecionado")
-})
+// botao.addEventListener("mouseenter", function(){
+//     botao.classList.add("botao-selecionado")
+// })
 
-botao.addEventListener("mouseout", function(){
-    botao.style.background = '#0c8cd3'
-})
+// botao.addEventListener("mouseout", function(){
+//     botao.style.background = '#0c8cd3'
+// })
