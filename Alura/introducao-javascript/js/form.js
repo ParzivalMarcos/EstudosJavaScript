@@ -14,6 +14,14 @@ botao.addEventListener("click", function(event){
 
     var pacienteTR = montaTR(paciente)
 
+    var erro = validaPaciente(paciente)
+
+    if (erro.length > 0){
+        var mensagemErro = document.querySelector("#mensagem-erro")
+        mensagemErro.textContent = erro
+        return
+    }
+
     // Pegando a tabela HTML
     var tabela = document.querySelector("#tabela-pacientes")
 
@@ -42,7 +50,6 @@ function montaTR(paciente){
     var pacienteTR = document.createElement("tr")
     pacienteTR.classList.add("paciente")
 
-
     // Atribuindo valores aos elementos HTML criados anteriormente    
     // Adicionando as TDs como filhas de TR
     pacienteTR.appendChild(montaTD(paciente.nome, "info-nome"))
@@ -59,4 +66,13 @@ function montaTD(dado, classe){
     td.textContent = dado
     td.classList.add(classe)
     return td
+}
+
+function validaPaciente(paciente){
+    var erros = []
+
+    if(!validaPeso(paciente.peso)) erros.push("Peso é inválido") 
+    if (!validaAltura(paciente.altura)) erros.push("Altura é inválida")
+
+    return erros
 }

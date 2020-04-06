@@ -141,3 +141,7 @@ button[disabled=disabled], button:disabled {
 .botao-selecionado{
 	background-color: lightskyblue;
 }
+
+#mensagem-erro{
+	color: red;
+}
