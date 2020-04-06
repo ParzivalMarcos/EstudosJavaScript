@@ -10,6 +10,7 @@ botao.addEventListener("click", function(event){
     var form = document.querySelector("#form-adiciona")
         
     var paciente = obtemPacienteDoFormulario(form)
+    console.log(paciente)
 
     var pacienteTR = montaTR(paciente)
 
