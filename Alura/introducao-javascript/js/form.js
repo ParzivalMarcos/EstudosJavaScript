@@ -10,15 +10,14 @@ botao.addEventListener("click", function(event){
     var form = document.querySelector("#form-adiciona")
         
     var paciente = obtemPacienteDoFormulario(form)
-    console.log(paciente)
 
     var pacienteTR = montaTR(paciente)
 
     var erro = validaPaciente(paciente)
+    console.log(erro)
 
     if (erro.length > 0){
-        var mensagemErro = document.querySelector("#mensagem-erro")
-        mensagemErro.textContent = erro
+        exibeMensagensDeErro(erro)
         return
     }
 
@@ -30,7 +29,20 @@ botao.addEventListener("click", function(event){
 
     // Limpando campos
     form.reset()
+    var mensagensErro = document.querySelector('#mensagens-erro')
+    mensagensErro.innerHTML = ""
 })
+
+function exibeMensagensDeErro(erros){
+    var ul = document.querySelector('#mensagens-erro')
+    ul.innerHTML = ""
+
+    erros.forEach(function(erro){
+        var li = document.createElement('li')
+        li.textContent = erro
+        ul.appendChild(li)
+    })
+}
 
 function obtemPacienteDoFormulario(form){
 
@@ -71,8 +83,11 @@ function montaTD(dado, classe){
 function validaPaciente(paciente){
     var erros = []
 
+    // if com uma linha, quando a quero apenas uma condição por exemplo 'sem else'
+    if(paciente.nome.length == 0) erros.push("O nome não pode ser em branco")
     if(!validaPeso(paciente.peso)) erros.push("Peso é inválido") 
-    if (!validaAltura(paciente.altura)) erros.push("Altura é inválida")
+    if(!validaAltura(paciente.altura)) erros.push("Altura é inválida")
+    if(paciente.gordura.length == 0) erros.push("A gordura não pode ser em branco")
 
     return erros
 }
