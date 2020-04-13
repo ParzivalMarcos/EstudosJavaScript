@@ -1,7 +1,6 @@
 var campoFiltro = document.querySelector("#filtrar-tabela")
 
 campoFiltro.addEventListener("input", function(){
-    console.log(this.value)
     var pacientes = document.querySelectorAll(".paciente")
 
     if(this.value.length > 0){
@@ -10,7 +9,6 @@ campoFiltro.addEventListener("input", function(){
             var nome = tdNome.textContent
 
             var expressao = new RegExp(campoFiltro.value, "i")
-            console.log(expressao)
 
             if(!expressao.test(nome)){
                 paciente.classList.add("invisivel")
