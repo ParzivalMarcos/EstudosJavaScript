@@ -5,27 +5,32 @@ class NegociacaoController{
         this._inputData = $("#data")
         this._inputQuantidade = $("#quantidade")
         this._inputValor = $("#valor")
+        this._listaNegociacoes = new ListaNegociacoes()
 
     }
 
     adiciona(event){
         event.preventDefault()
 
-        let data = new Date(...
-            this._inputData.value
-            .split('-')
-            .map((item, indice) => item - indice % 2))
+        this._listaNegociacoes.adiciona(this._criaNegociacao())
+        this._limpaFormulario()
+        console.log(this._listaNegociacoes.negociacoes)
+    }
 
-        let negociacao = new Negociacao(
-            data,
+    _criaNegociacao(){
+
+        return new Negociacao(
+            DateHelper.textoParaData(this._inputData.value),
             this._inputQuantidade.value,
-            this._inputValor.value
-        )
-        
-        let diaMesAno = negociacao.data.getDate() 
-        + '/' + (negociacao.data.getMonth() + 1)
-        + '/' + negociacao.data.getFullYear()
-        console.log(diaMesAno)
+            this._inputValor.value)
+    }
+
+    _limpaFormulario(){
+
+        this._inputData.value = ''
+        this._inputQuantidade.value = 1
+        this._inputValor.value = 0.0
+        this._inputData.focus()
     }
 
         /**
@@ -34,5 +39,6 @@ class NegociacaoController{
          * Função map() recebe um iteravel e realiza alguma operação em cada item deste iteravel
          * Na mesma função map(), esta sendo utilizado o conceito de arrows functions
          * No exemplo, como possui apenas uma instrução, não é necessario utilizar o bloco '{}'
+         * O '_' no inicio dos nome dos métodos, indica que estes mesmos só podem ser utilizados pela própria classe
          */
     }
